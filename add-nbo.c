@@ -20,22 +20,17 @@ int main(int argc, char *argv[]) {
         fputs("File error", stderr);
         exit(1);
     }
-
+    
+    // read the file, save &buff1, 2
     fread(&buff1, sizeof(uint32_t), 1, file1);
     fread(&buff2, sizeof(uint32_t), 1, file2);
 
+    // use ntohl
     buff1 = ntohl(buff1);
     buff2 = ntohl(buff2);
     addnum = buff1 + buff2;
     printf("%d(0x%x) + %d(0x%x) = %d(0x%x)\n", buff1, buff1, buff2, buff2, addnum);
 
-    // file reading
-    
-    // fread(buff, sizeof(char), 1, file2);
-    // printf("0x%x", buff);
-
-    // file print
-    // printf("%s + %s = %s", );
 
     // file close 
     fclose(file1);
